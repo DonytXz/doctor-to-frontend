@@ -14,16 +14,16 @@ const AddressInformation = ({
 }: any) => {
   const countries = [
     {
-      value: "india",
-      label: "India",
+      value: "mx",
+      label: "Mexico",
     },
     {
-      value: "uk",
-      label: "United Kingdom",
+      value: "us",
+      label: "United states",
     },
     {
-      value: "srilanka",
-      label: "Srilanka",
+      value: "canada",
+      label: "canada",
     },
   ];
 
@@ -101,17 +101,17 @@ const AddressInformation = ({
             sx={{
               mt: 0,
             }}
-            htmlFor="postalCode-text"
+            htmlFor="zipCode-text"
           >
             {t(`Post Code`)}
           </CustomFormLabel>
           <CustomTextField
-            type="postalCode"
-            name="postalCode"
+            type="zipCode"
+            name="zipCode"
             onChange={handleChange}
             onBlur={handleBlur}
             // value={values.postalCode}
-            id="postalCode-text"
+            id="zipCode-text"
             variant="outlined"
             fullWidth
           />

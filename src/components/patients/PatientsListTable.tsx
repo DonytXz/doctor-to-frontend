@@ -10,56 +10,18 @@ import {
 } from "@mui/material";
 import { getPatients } from "../../services/Patients";
 import { useEffect, useState } from "react";
-
+import { useTranslation } from "react-i18next";
 const PatientsListTable = () => {
   const [patients, setPatients]: any = useState([]);
+  const { t } = useTranslation();
 
-  const patientsMock = [
-    {
-      id: "1",
-      name: "Sunil Joshi",
-      post: "Cosmetologo",
-      pname: "Elite Admin",
-      priority: "Low",
-      pbg: "primary.main",
-      budget: "3.9",
-    },
-    {
-      id: "2",
-      name: "Andrew McDownland",
-      post: "Cosmetologo",
-      pname: "Real Homes WP Theme",
-      priority: "Medium",
-      pbg: "secondary.main",
-      budget: "24.5",
-    },
-    {
-      id: "3",
-      name: "Christopher Jamil",
-      post: "Receptionis",
-      pname: "MedicalPro WP Theme",
-      priority: "High",
-      pbg: "error.main",
-      budget: "12.8",
-    },
-    {
-      id: "4",
-      name: "Nirav Joshi",
-      post: "Cosmetologo",
-      pname: "Hosting Press HTML",
-      priority: "Critical",
-      pbg: "success.main",
-      budget: "2.4",
-    },
-  ];
-
-  useEffect(() => {
-    const fetchApi = async () => {
-      const response = await getPatients();
-      setPatients(response);
-      console.log(patients, "patients", response);
-    };
+  const fetchApi = async () => {
+    const response = await getPatients();
+    setPatients(response.result);
+  };
+  useEffect(() => { 
     fetchApi();
+    console.log(patients, "patients");
   }, []);
 
   return (
@@ -68,7 +30,7 @@ const PatientsListTable = () => {
         <Table
           aria-label="simple table"
           sx={{
-            whiteSpace: "nowrap",
+            // whiteSpace: "nowrap",
             mt: 2,
           }}
         >
@@ -76,27 +38,27 @@ const PatientsListTable = () => {
             <TableRow>
               <TableCell>
                 <Typography variant="subtitle2" fontWeight={600}>
-                  Id
+                  {t(`Patient`)}
                 </Typography>
               </TableCell>
               <TableCell>
                 <Typography variant="subtitle2" fontWeight={600}>
-                  Assigned
+                  {t(`Phone`)}
                 </Typography>
               </TableCell>
               <TableCell>
                 <Typography variant="subtitle2" fontWeight={600}>
-                  Name
+                  {t(`Adress`)}
+                </Typography>
+              </TableCell>
+              <TableCell align="center">
+                <Typography variant="subtitle2" fontWeight={600}>
+                  {t(`Budget`)}
                 </Typography>
               </TableCell>
               <TableCell>
                 <Typography variant="subtitle2" fontWeight={600}>
-                  Priority
-                </Typography>
-              </TableCell>
-              <TableCell align="right">
-                <Typography variant="subtitle2" fontWeight={600}>
-                  Budget
+                  {t(`Status`)}
                 </Typography>
               </TableCell>
             </TableRow>
@@ -104,7 +66,7 @@ const PatientsListTable = () => {
           <TableBody>
             {patients?.length > 0 &&
               patients.map((patient: any) => (
-                <TableRow key={patient.name}>
+                <TableRow>
                   <TableCell>
                     <Typography
                       sx={{
@@ -112,7 +74,7 @@ const PatientsListTable = () => {
                         fontWeight: "500",
                       }}
                     >
-                      {patient.curp}
+                      {patient.name}
                     </Typography>
                   </TableCell>
                   <TableCell>
@@ -124,7 +86,7 @@ const PatientsListTable = () => {
                     >
                       <Box>
                         <Typography variant="subtitle2" fontWeight={600}>
-                          {patient.name}
+                          {patient.phone}
                         </Typography>
                         <Typography
                           color="textSecondary"
@@ -143,22 +105,22 @@ const PatientsListTable = () => {
                       variant="subtitle2"
                       fontWeight={400}
                     >
-                      {patient.pname}
+                      {patient.address}
                     </Typography>
                   </TableCell>
+                        <TableCell align="right">
+                          <Typography variant="h6">${patient.budget}33,000MXN</Typography>
+                        </TableCell>
                   <TableCell>
                     <Chip
                       sx={{
                         px: "4px",
-                        backgroundColor: patient.pbg,
+                        backgroundColor: 'primary.main',
                         color: "#fff",
                       }}
                       size="small"
-                      label={patient.priority}
+                      label="Medium"
                     ></Chip>
-                  </TableCell>
-                  <TableCell align="right">
-                    <Typography variant="h6">${patient.budget}k</Typography>
                   </TableCell>
                 </TableRow>
               ))}

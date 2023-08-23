@@ -1,13 +1,20 @@
-import { Button } from "@mui/material";
+import { Alert, Button } from "@mui/material";
 import ParentCard from "../shared/ParentCard";
 import PersonalIformation from "./registerForm/PersonalIformation";
 import AddressInformation from "./registerForm/AddressInformation";
 import ContactInformation from "./registerForm/ContactInformation";
 import { Formik } from "formik";
-// import { storePatient } from "@services/Paitients";
 import { storePatient } from "../../services/Patients";
+import { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
+import { useTranslation } from "react-i18next";
+
 
 const PatientRegisterForm = () => {
+  const [success, SetSuccess] = useState(false);
+  const { t } = useTranslation();
+  const txtSuccess = t(`Patient has successfully registered`);
+  const notifySuccess = () => toast.success(txtSuccess);
   return (
     <div>
       {/* ------------------------------------------------------------------------------------------------ */}
@@ -16,21 +23,21 @@ const PatientRegisterForm = () => {
       <Formik
         initialValues={{
           email: "",
-          phone: null,
-          emergencyContact: null,
+          phone: "",
+          emergencyContact: "",
 
           street: "",
           city: "",
           state: "",
-          postalCode: "",
+          zipCode: "",
           country: "",
 
           name: "",
           lastName: "",
           gender: "",
           religion: "",
-          datheOfBirth: Date,
-          maritalStatus: "",
+          birthdate: Date,
+          civilstatus: "",
           ocupation: "",
           bloodType: "",
           age: "",
@@ -48,11 +55,25 @@ const PatientRegisterForm = () => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          // setTimeout(() => {
-          //   alert(JSON.stringify(values, null, 2));
-          //   setSubmitting(false);
-          // }, 400);
-          storePatient(values);
+          const address = `${values.street} ${values.zipCode} ${values.city} ${values.state} ${values.country}`;
+          const patient: any = {
+            email: values.email,
+            phone: `${values.phone}`,
+            emergencyContact: `${values.emergencyContact}`,
+            address: address,
+            name: `${values.name} ${values.lastName}`,
+            gender: values.gender,
+            religion: values.religion,
+            birthdate: values.birthdate.toString(),
+            civilstatus: values.civilstatus,
+            ocupation: values.ocupation,
+            bloodType: values.bloodType,
+            age: values.age,
+            curp: values.curp,
+          };
+          notifySuccess()
+          storePatient(patient);
+          SetSuccess(true);
           setSubmitting(false);
         }}
       >
@@ -64,6 +85,8 @@ const PatientRegisterForm = () => {
           handleBlur,
           handleSubmit,
           isSubmitting,
+          dirty,
+          isValid 
         }) => (
           <ParentCard
             title="Patient Information"
@@ -73,6 +96,7 @@ const PatientRegisterForm = () => {
                   onClick={() => handleSubmit()}
                   variant="contained"
                   color="primary"
+                  disabled={!(dirty && isValid)}
                 >
                   Submit
                 </Button>
@@ -114,6 +138,7 @@ const PatientRegisterForm = () => {
           </ParentCard>
         )}
       </Formik>
+      <Toaster />
       {/* ------------------------------------------------------------------------------------------------ */}
       {/* Patient Form */}
       {/* ------------------------------------------------------------------------------------------------ */}

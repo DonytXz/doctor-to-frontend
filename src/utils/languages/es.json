@@ -13,9 +13,16 @@
   "Costemologist": "Cosmetologa",
 
   "Patients": "Pacientes",
+  "Patient": "Paciente",
   "Patient Register": "Registrar Paciente",
   "Patients List": "Lista de Pacientes",
   "Patient Information": "Información de paciente",
+  "Patient has successfully registered": "Paciente regristrado exitosamente",
+
+  "Phone": "Telefono",
+  "Adress": "Dirección",
+  "Budget": "Presupuesto",
+  "Status": "Estatus",
 
   "Person Info": "Iformación personal",
   "First Name": "Nombre",

@@ -140,32 +140,32 @@ const PersonalIformation = ({
             variant="outlined"
             fullWidth
           />
-          <CustomFormLabel htmlFor="datheOfBirth">
+          <CustomFormLabel htmlFor="birthdate">
             {t(`Date of Birth`)}
           </CustomFormLabel>
 
           <CustomTextField
-            type="datheOfBirth"
-            name="datheOfBirth"
+            type="date"
+            name="birthdate"
             onChange={handleChange}
             onBlur={handleBlur}
             // value={values.datheOfBirth}
-            id="datheOfBirth"
+            id="birthdate"
             variant="outlined"
             fullWidth
             InputLabelProps={{
               shrink: true,
             }}
           />
-          <CustomFormLabel htmlFor="maritalStatus-text">
+          <CustomFormLabel htmlFor="civilstatus-text">
             {t(`Marital Status`)}
           </CustomFormLabel>
           <CustomSelect
-            type="maritalStatus"
-            name="maritalStatus"
+            type="civilstatus"
+            name="civilstatus"
             onChange={handleChange}
             onBlur={handleBlur}
-            id="maritalStatus-text"
+            id="civilstatus-text"
             fullWidth
             variant="outlined"
           >

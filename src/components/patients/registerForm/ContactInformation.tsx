@@ -45,16 +45,16 @@ const ContactInformation = ({
           fullWidth
         />
         {errors.phone && touched.phone && errors.phone}
-        <CustomFormLabel htmlFor="EmergencyPhone-text">
+        <CustomFormLabel htmlFor="emergencyContact-text">
           {t(`Emergency Phone Number`)}
         </CustomFormLabel>
         <CustomTextField
-          type="emergencyPhone"
-          name="emergencyPhone"
+          type="emergencyContact"
+          name="emergencyContact"
           onChange={handleChange}
           onBlur={handleBlur}
           // value={values.emergencyPhone}
-          id="emergencyPhone-text"
+          id="emergencyContact-text"
           variant="outlined"
           fullWidth
         />

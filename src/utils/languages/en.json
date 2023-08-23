@@ -15,7 +15,14 @@
   "Patient Register": "Patients Register",
   "Patients List": "Patients List",
   "Patients": "Patients",
+  "Patient": "Patient",
   "Patient Information": "Patient Information",
+  "Patient has successfully registered": "Patient has successfully registered",
+
+  "Phone": "Phone",
+  "Adress": "Adress",
+  "Budget": "Budget",
+  "Status": "Status",
 
   "Person Info": "Person Info",
   "First Name": "First Name",
