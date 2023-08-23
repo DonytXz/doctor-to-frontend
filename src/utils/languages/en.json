@@ -1,15 +1,41 @@
 {
   "Starter": "Starter",
+  "Home": "Home",
   "Menu Level": "Menu Level",
   "Disabled": "Disabled",
   "SubCaption": "SubCaption",
   "Chip": "Chip",
   "Outlined": "Outlined",
   "External Link": "External Link",
-  "Costemologist": "Costemologist",
-  "Client Register": "Client Register",
-  "Client List": "Client List",
-  "List": "List",
   "Register": "Register",
-  "Clients": "Clients"
+  "List": "List",
+
+  "Costemologist": "Costemologist",
+
+  "Patient Register": "Patients Register",
+  "Patients List": "Patients List",
+  "Patients": "Patients",
+  "Patient Information": "Patient Information",
+
+  "Person Info": "Person Info",
+  "First Name": "First Name",
+  "Last Name": "Last Name",
+  "Select Gender": "Select Gender",
+  "Date of Birth": "Date of Birth",
+  "Marital Status": "Marital Status",
+  "Religion": "Religion",
+  "Ocupation": "Ocupation",
+  "Blod Type": "Blod Type",
+
+  "Address": "Address",
+  "Street": "Street",
+  "City": "City",
+  "State": "State",
+  "Post Code": "Post Code",
+  "Country": "Country",
+
+  "Contact Information": "Contact Information",
+  "Email": "Email",
+  "Phone Number": "Phone Number",
+  "Emergency Phone Number": "Emergency Phone Number"
 }

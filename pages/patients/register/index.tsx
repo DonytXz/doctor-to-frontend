@@ -2,16 +2,16 @@ import React from "react";
 import PageContainer from "../../../src/components/container/Pagecontainer";
 import DashboardCard from "../../../src/components/shared/DashboardCard";
 import Breadcrumb from "../../../src/layouts/full/shared/breadcrumb/Breadcrumb";
-import { BCrumbClients } from "../BCrumClients";
+import { BCrumPatients } from "../BCrumPatients";
 import { useTranslation } from "react-i18next";
-import ClientRegisterForm from "../../../src/components/clients/ClientRegisterForm";
+import ClientRegisterForm from "../../../src/components/patients/PatientRegisterForm";
 
 const RegisterClient = () => {
   const { t } = useTranslation();
   return (
-    <PageContainer title="Clients" description="List of all Clients">
-      <Breadcrumb title="Clients" items={BCrumbClients} />
-      <DashboardCard title="Client Register">
+    <PageContainer title="Patients" description="List of all Patients">
+      <Breadcrumb title="Patients" items={BCrumPatients} />
+      <DashboardCard title="Patient Register">
         <div>
           <ClientRegisterForm />
         </div>

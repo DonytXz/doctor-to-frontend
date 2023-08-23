@@ -1,6 +1,7 @@
 import { ListSubheader, styled, Theme } from '@mui/material';
 import { IconDots } from '@tabler/icons-react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 type NavGroup = {
   navlabel?: boolean;
@@ -13,6 +14,7 @@ interface ItemType {
 }
 
 const NavGroup = ({ item, hideMenu }: ItemType) => {
+  const { t } = useTranslation();
   const ListSubheaderStyle = styled((props: Theme | any) => (
     <ListSubheader disableSticky {...props} />
   ))(({ theme }) => ({
@@ -27,7 +29,7 @@ const NavGroup = ({ item, hideMenu }: ItemType) => {
   }));
 
   return (
-    <ListSubheaderStyle>{hideMenu ? <IconDots size="14" /> : item?.subheader}</ListSubheaderStyle>
+    <ListSubheaderStyle>{hideMenu ? <IconDots size="14" /> : t(`${item?.subheader}`) }</ListSubheaderStyle>
   );
 };
 

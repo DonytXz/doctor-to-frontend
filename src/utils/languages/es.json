@@ -1,15 +1,41 @@
 {
   "Starter": "Inicio",
+  "Home": "Inicio",
   "Menu Level": "Niveles menu",
   "Disabled": "Desabilitado",
   "SubCaption": "SubTitulo",
   "Chip": "Chip",
   "Outlined": "Fuera de linea",
   "External Link": "Link Externo",
-  "Costemologist": "Cosmetologa",
-  "Client Register": "Registrar Cliente",
-  "Client List": "Lista de Clientes",
-  "List": "Lista",
   "Register": "Registrar",
-  "Clients": "Clientes"
+  "List": "Lista",
+
+  "Costemologist": "Cosmetologa",
+
+  "Patients": "Pacientes",
+  "Patient Register": "Registrar Paciente",
+  "Patients List": "Lista de Pacientes",
+  "Patient Information": "Información de paciente",
+
+  "Person Info": "Iformación personal",
+  "First Name": "Nombre",
+  "Last Name": "Apellido",
+  "Select Gender": "Genero",
+  "Date of Birth": "Fecha de nacimiento",
+  "Marital Status": "Estado civil",
+  "Religion": "Religión",
+  "Ocupation": "Ocupación",
+  "Blod Type": "Tipo de sangre",
+
+  "Address": "Dirección",
+  "Street": "Calle",
+  "City": "Ciudad",
+  "State": "Estado",
+  "Post Code": "Codigo Postal",
+  "Country": "Pais",
+
+  "Contact Information": "Información de contacto",
+  "Email": "Correo",
+  "Phone Number": "Numero de telefono",
+  "Emergency Phone Number": "Numero de emergencia"
 }

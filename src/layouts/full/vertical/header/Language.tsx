@@ -13,22 +13,22 @@ const Languages = [
     icon: "/images/flag/icon-flag-en.svg",
     value: 'en',
   },
-  {
-    flagname: '中国人 (Chinese)',
-    icon: "/images/flag/icon-flag-cn.svg",
-    value: 'ch',
-  },
-  {
-    flagname: 'français (French)',
-    icon: "/images/flag/icon-flag-fr.svg",
-    value: 'fr',
-  },
+  // {
+  //   flagname: '中国人 (Chinese)',
+  //   icon: "/images/flag/icon-flag-cn.svg",
+  //   value: 'ch',
+  // },
+  // {
+  //   flagname: 'français (French)',
+  //   icon: "/images/flag/icon-flag-fr.svg",
+  //   value: 'fr',
+  // },
 
-  {
-    flagname: 'عربي (Arabic)',
-    icon: "/images/flag/icon-flag-sa.svg",
-    value: 'ar',
-  },
+  // {
+  //   flagname: 'عربي (Arabic)',
+  //   icon: "/images/flag/icon-flag-sa.svg",
+  //   value: 'ar',
+  // },
   {
     flagname: 'Spanish (MX)',
     icon: "/images/flag/icon-flag-mx.png",

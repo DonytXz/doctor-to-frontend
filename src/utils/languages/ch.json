@@ -7,9 +7,10 @@
     "Outlined": "概述",
     "External Link": "外部链接",
     "Costemologist": "美容师",
-    "Client Register": "Client Register",
-    "Client List": "Client List",
+    "Patient Register": "Patients Register",
+    "Patients List": "Patients List",
     "List": "List",
     "Register": "Register",
-    "Clients": "Clients"
+    "Patients": "Patients",
+    "Home": "Home"
 }
