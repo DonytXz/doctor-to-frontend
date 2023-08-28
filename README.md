@@ -1,2 +1,19 @@
-# doctor-to-frontend
-Frontend para el proyecto de Dr-to-Dr
+# Doctor2Doctor
+
+Doctor to Doctor is a React app for cosmetic services.
+
+## Installation
+
+- Yo need npm
+
+```bash
+npm install
+```
+
+## Usage
+
+```bash
+npm run dev
+```
+
+## Contributing
