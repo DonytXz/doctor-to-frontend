@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Grid, Box, Typography, Stack } from "@mui/material";
-import PageContainer from "../../../../src/components/container/PageContainer";
+import PageContainer from "../../../../src/components/container/Pagecontainer";
 import Logo from "../../../../src/layouts/full/shared/logo/Logo";
 
 import AuthRegister from "../../authForms/AuthRegister";
@@ -71,10 +71,10 @@ const Register = () => (
       >
         <Box p={4}>
           <AuthRegister
-            title="Welcome to Modernize"
+            title="Welcome to USC"
             subtext={
               <Typography variant="subtitle1" color="textSecondary" mb={1}>
-                Your Admin Dashboard
+                Your clinic
               </Typography>
             }
             subtitle={

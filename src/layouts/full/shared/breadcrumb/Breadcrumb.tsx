@@ -2,7 +2,8 @@ import React from "react";
 import { Grid, Typography, Box, Breadcrumbs, Theme } from "@mui/material";
 import NextLink from "next/link";
 
-import breadcrumbImg from "public/images/breadcrumb/ChatBc.png";
+// import breadcrumbImg from "public/images/breadcrumb/ChatBc.png";
+import breadcrumbImg from "public/images/breadcrumb/clinic.webp";
 import { IconCircle } from "@tabler/icons-react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
