@@ -10,7 +10,7 @@ Doctor to Doctor is a React app for cosmetic services.
 npm install
 ```
 
-## Usage
+## Run
 
 ```bash
 npm run dev
