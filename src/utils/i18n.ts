@@ -10,15 +10,15 @@ const resources = {
   en: {
     translation: english,
   },
-  fr: {
-    translation: french,
-  },
-  ar: {
-    translation: arabic,
-  },
-  ch: {
-    translation: chinese,
-  },
+  // fr: {
+  //   translation: french,
+  // },
+  // ar: {
+  //   translation: arabic,
+  // },
+  // ch: {
+  //   translation: chinese,
+  // },
   es: {
     translation : spanish,
   },

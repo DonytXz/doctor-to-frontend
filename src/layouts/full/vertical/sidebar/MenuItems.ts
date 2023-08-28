@@ -35,19 +35,19 @@ const Menuitems: MenuitemsType[] = [
   },
   {
     navlabel: true,
-    subheader: "Clients",
+    subheader: "Patients",
   },
   {
     id: uniqueId(),
-    title: "Client List",
+    title: "Patient List",
     icon: IconList,
-    href: "/clients/list",
+    href: "/patients/list",
   },
   {
     id: uniqueId(),
-    title: "Client Register",
+    title: "Patient Register",
     icon: IconPlus,
-    href: "/clients/register",
+    href: "/patients/register",
   },
 ];
 

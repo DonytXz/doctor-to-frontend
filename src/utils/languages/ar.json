@@ -7,9 +7,10 @@
     "Outlined": "موجز",
     "External Link": "رابط خارجي",
     "Costemologist": "خبير تجميل",
-    "Client Register": "Client Register",
-    "Client List": "Client List",
+    "Patient Register": "Patients Register",
+    "Patients List": "Patients List",
     "List": "List",
     "Register": "Register",
-    "Clients": "Clients"
+    "Patients": "Patients",
+    "Home": "Home"
 }

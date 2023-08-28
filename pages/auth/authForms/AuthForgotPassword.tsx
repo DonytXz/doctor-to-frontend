@@ -25,7 +25,7 @@ const AuthForgotPassword = () => (
         size="large"
         fullWidth
         component={Link}
-        href="/auth/login"
+        href="/auth/auth1/login"
       >
         Back to Login
       </Button>

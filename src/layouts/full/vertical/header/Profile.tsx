@@ -179,7 +179,7 @@ const Profile = () => {
             </Box>
           </Box>
           <Button
-            href="/auth/login"
+            href="/auth/auth1/login"
             variant="outlined"
             color="primary"
             component={Link}

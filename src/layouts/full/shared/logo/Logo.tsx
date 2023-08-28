@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useSelector } from "../../../../store/Store";
 import Link from "next/link";
-import { styled } from "@mui/material";
+import { styled, Typography } from "@mui/material";
 import { AppState } from "../../../../store/Store";
 import Image from "next/image";
 
@@ -18,21 +18,27 @@ const Logo = () => {
     return (
       <LinkStyled href="/">
         {customizer.activeMode === "dark" ? (
-          <Image
-            src="/images/logos/light-logo.svg"
-            alt="logo"
-            height={customizer.TopbarHeight}
-            width={174}
-            priority
-          />
+          <Typography  mt={3} variant="h2" component="h2">
+            USC Clinic
+          </Typography>
+          // <Image
+          //   src="/images/logos/light-logo.svg"
+          //   alt="logo"
+          //   height={customizer.TopbarHeight}
+          //   width={174}
+          //   priority
+          // />
         ) : (
-          <Image
-            src={"/images/logos/dark-logo.svg"}
-            alt="logo"
-            height={customizer.TopbarHeight}
-            width={174}
-            priority
-          />
+          <Typography mt={3} variant="h2" component="h2">
+            USC Clinic
+          </Typography>
+          // <Image
+          //   src={"/images/logos/dark-logo.svg"}
+          //   alt="logo"
+          //   height={customizer.TopbarHeight}
+          //   width={174}
+          //   priority
+          // />
         )}
       </LinkStyled>
     );
@@ -41,21 +47,27 @@ const Logo = () => {
   return (
     <LinkStyled href="/">
       {customizer.activeMode === "dark" ? (
-        <Image
-          src="/images/logos/dark-rtl-logo.svg"
-          alt="logo"
-          height={customizer.TopbarHeight}
-          width={174}
-          priority
-        />
+        <Typography mt={3} variant="h2" component="h2">
+          USC Clinic
+        </Typography>
+        // <Image
+        //   src="/images/logos/dark-rtl-logo.svg"
+        //   alt="logo"
+        //   height={customizer.TopbarHeight}
+        //   width={174}
+        //   priority
+        // />
       ) : (
-        <Image
-          src="/images/logos/light-logo-rtl.svg"
-          alt="logo"
-          height={customizer.TopbarHeight}
-          width={174}
-          priority
-        />
+        <Typography mt={3} variant="h2" component="h2">
+          USC Clinic
+        </Typography>
+        // <Image
+        //   src="/images/logos/light-logo-rtl.svg"
+        //   alt="logo"
+        //   height={customizer.TopbarHeight}
+        //   width={174}
+        //   priority
+        // />
       )}
     </LinkStyled>
   );

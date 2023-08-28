@@ -3,6 +3,7 @@ import { useTheme } from '@mui/material/styles';
 import { Card, CardHeader, CardContent, Divider, Box } from '@mui/material';
 import { useSelector } from '../../../src/store/Store';
 import { AppState } from '../../../src/store/Store';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   title: string;
@@ -12,7 +13,7 @@ type Props = {
 
 const ParentCard = ({ title, children, footer }: Props) => {
   const customizer = useSelector((state: AppState) => state.customizer);
-
+  const { t } = useTranslation();
   const theme = useTheme();
   const borderColor = theme.palette.divider;
 
@@ -22,7 +23,7 @@ const ParentCard = ({ title, children, footer }: Props) => {
       elevation={customizer.isCardShadow ? 9 : 0}
       variant={!customizer.isCardShadow ? 'outlined' : undefined}
     >
-      <CardHeader title={title} />
+      <CardHeader title={t(`${title}`)} />
       <Divider />
 
       <CardContent>{children}</CardContent>
