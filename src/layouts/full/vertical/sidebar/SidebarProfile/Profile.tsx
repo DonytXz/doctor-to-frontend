@@ -37,16 +37,21 @@ export const Profile = () => {
 
           <Box>
             <Typography variant="h6">Sonia</Typography>
-            <Typography variant="caption">
-              {t(`${"Costemologist"}`)}
-            </Typography>
+            <Typography variant="caption">{t(`${"Costemologist"}`)}</Typography>
           </Box>
           <Box sx={{ ml: "auto" }}>
             <Tooltip title="Logout" placement="top">
               <IconButton
                 color="primary"
-                component={Link}
-                href="/auth/auth1/login"
+                // component={Link}
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    localStorage.removeItem("id");
+                    localStorage.removeItem("token");
+                    window.location = "/auth/auth1/login" as any;
+                  }
+                }}
+                // href="/auth/auth1/login"
                 aria-label="logout"
                 size="small"
               >

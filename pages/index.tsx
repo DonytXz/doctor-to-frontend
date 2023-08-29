@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Typography } from "@mui/material";
 import Breadcrumb from "../src/layouts/full/shared/breadcrumb/Breadcrumb";
@@ -15,6 +16,13 @@ const BCrumb = [
 ];
 
 export default function Home() {
+  if (typeof window !== "undefined") {
+    const id = localStorage?.getItem("id") || "";
+    const token = localStorage?.getItem("token") || "";
+    console.log(id, token, "data localstorage");
+    if (!id && !token) window.location = "/auth/auth1/login" as any;
+  }
+
   return (
     <PageContainer title="Sample Page" description="this is Sample page">
       {/* breadcrumb */}

@@ -17,7 +17,7 @@ const PatientsListTable = () => {
 
   const fetchApi = async () => {
     const response = await getPatients();
-    setPatients(response.result);
+    setPatients(response?.result);
   };
   useEffect(() => { 
     fetchApi();
