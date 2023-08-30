@@ -16,10 +16,12 @@ import CustomFormLabel from "../../../src/components/forms/theme-elements/Custom
 import AuthSocialButtons from "./AuthSocialButtons";
 import { Formik } from "formik";
 import { login } from "../../../src/services/Auth";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
+  const router = useRouter();
   const { t } = useTranslation();
   const txtSuccess = t(`Loggin Success`);
   const notifySuccess = () => toast.success(txtSuccess);
@@ -50,7 +52,6 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
         </Divider>
       </Box>
 
-
       <Formik
         initialValues={{
           username: "",
@@ -69,7 +70,24 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
         }}
         onSubmit={(values) => {
           // console.log(values, "values");
-          login(values);
+          login(values)
+            .then(function (response: any) {
+              localStorage.setItem("token", response?.data?.token);
+              localStorage.setItem("id", response?.data?.id);
+              // redirect('/');
+              // window.location = "/" as any;]
+              console.log(response);
+              if (!response?.data?.error) router.push("/");
+              // router.push("/")
+              // return response;
+            })
+            .catch(function (error) {
+              console.log(error);
+              // return error;
+            });
+            
+          // setTimeout(router.push("/"), 1300);
+          // router.push("/")
           // const response = login(values);
           notifySuccess();
           // window.location = "/" as any;
@@ -89,15 +107,21 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
           handleSubmit,
           isSubmitting,
           dirty,
-          isValid
+          isValid,
         }) => (
-
           <form>
             <Stack>
               <Box>
                 <CustomFormLabel htmlFor="username">Username</CustomFormLabel>
-                <CustomTextField name="username" onChange={handleChange}
-                  onBlur={handleBlur} type="email" id="username" variant="outlined" fullWidth />
+                <CustomTextField
+                  name="username"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  type="email"
+                  id="username"
+                  variant="outlined"
+                  fullWidth
+                />
               </Box>
               <Box>
                 <CustomFormLabel htmlFor="password">Password</CustomFormLabel>
@@ -149,10 +173,8 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
             </Box>
             {subtitle}
           </form>
-
         )}
       </Formik>
-
     </>
   );
 };

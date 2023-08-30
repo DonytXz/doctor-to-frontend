@@ -11,11 +11,13 @@ import { IconPower } from "@tabler/icons-react";
 import { AppState } from "../../../../../store/Store";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
 
 export const Profile = () => {
   const customizer = useSelector((state: AppState) => state.customizer);
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
   const { t } = useTranslation();
+  const router = useRouter();
   const hideMenu = lgUp
     ? customizer.isCollapse && !customizer.isSidebarHover
     : "";
@@ -48,7 +50,8 @@ export const Profile = () => {
                   if (typeof window !== "undefined") {
                     localStorage.removeItem("id");
                     localStorage.removeItem("token");
-                    window.location = "/auth/auth1/login" as any;
+                    // window.location = "/auth/auth1/login" as any;
+                    router.push("/auth/auth1/login");
                   }
                 }}
                 // href="/auth/auth1/login"
