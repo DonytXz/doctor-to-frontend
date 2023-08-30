@@ -7,12 +7,13 @@ import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import FormSections from "./FormSections";
 import ChildForm from "./forms/ChildForm";
+import { storeProcedding } from "src/services/Proceedings";
 
 const ProceedingsForm = () => {
-  const [success, SetSuccess] = useState(false);
   const { t } = useTranslation();
   const txtSuccess = t(`Proceedings has successfully registered`);
   const notifySuccess = () => toast.success(txtSuccess);
+  console.log("render ProceedingsForm");
   //HOC component
   const AppHocFormComponent = FormSections(ChildForm);
   //HOC component
@@ -136,11 +137,11 @@ const ProceedingsForm = () => {
         }}
         validate={(values) => {
           const errors = {};
-
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
           console.log(values, "values");
+          storeProcedding(values);
           notifySuccess();
         }}
       >

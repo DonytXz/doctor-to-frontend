@@ -16,6 +16,7 @@ const ChildForm = ({
   isOneItem = false,
 }: any) => {
   const { t } = useTranslation();
+  // console.log("render ChildForm");
   return (
     <Grid item lg={isOneItem ? 12 : 6} md={12} sm={12} xs={12}>
       <CustomFormLabel
