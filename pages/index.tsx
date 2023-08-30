@@ -2,7 +2,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import Breadcrumb from "../src/layouts/full/shared/breadcrumb/Breadcrumb";
-import PageContainer from "../src/components/container/Pagecontainer";
+import PageContainer from "../src/components/container/PageContainer";
 import DashboardCard from "../src/components/shared/DashboardCard";
 
 const BCrumb = [
