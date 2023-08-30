@@ -1,8 +1,7 @@
 import { Grid, Box, Typography } from '@mui/material';
-import Logo from '../../../../src/layouts/full/shared/logo/Logo';
-import PageContainer from '../../../../src/components/container/PageContainer';
+import Logo from 'src/layouts/full/shared/logo/Logo';
+import PageContainer from 'src/components/container/Pagecontainer';
 import AuthForgotPassword from '../../authForms/AuthForgotPassword';
-
 const ForgotPassword = () => (
   <PageContainer title="Forgot Password" description="this is Forgot Password page">
     <Grid container justifyContent="center" spacing={0} sx={{ overflowX: 'hidden' }}>

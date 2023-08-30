@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 
 // project imports
-import Spinner from '../../../../../pages/spinner/Spinner';
+import Spinner from '../../../../../pages/';
 
 // ===========================|| LOADABLE - LAZY LOADING ||=========================== //
 
