@@ -6,11 +6,12 @@ import ContactInformation from "./registerForm/ContactInformation";
 import { Formik } from "formik";
 import { storePatient } from "../../services/Patients";
 import { useState } from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-
+import { useRouter } from "next/router";
 
 const PatientRegisterForm = () => {
+  const router = useRouter();
   const [success, SetSuccess] = useState(false);
   const { t } = useTranslation();
   const txtSuccess = t(`Patient has successfully registered`);
@@ -71,8 +72,16 @@ const PatientRegisterForm = () => {
             age: values.age,
             curp: values.curp,
           };
-          notifySuccess()
-          storePatient(patient);
+          notifySuccess();
+          storePatient(patient)
+            .then(function (response) {
+              console.log(response);
+              router.push("/patients/list");
+              // window.location = "/patients/list" as any;
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
           SetSuccess(true);
           setSubmitting(false);
         }}
@@ -86,7 +95,7 @@ const PatientRegisterForm = () => {
           handleSubmit,
           isSubmitting,
           dirty,
-          isValid 
+          isValid,
         }) => (
           <ParentCard
             title="Patient Information"

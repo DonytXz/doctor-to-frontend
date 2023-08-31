@@ -6,18 +6,21 @@ const API = process.env.NEXT_PUBLIC_API_URL;
 
 export const login = (values: any) => {
   console.log(API, "api");
-  
-  axios
-    .post(`${API}/usc/cosmotologist/login`, { email: values.username, password: values.password })
-    .then(function (response:any) {
-      localStorage.setItem("token", response?.data?.token);
-      localStorage.setItem("id", response?.data?.id);
-      // redirect('/');
-      window.location = "/" as any;
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-      return error
-    });
+
+  return axios.post(`${API}/usc/cosmotologist/login`, {
+    email: values.username,
+    password: values.password,
+  });
+  // .then(function (response:any) {
+  //   localStorage.setItem("token", response?.data?.token);
+  //   localStorage.setItem("id", response?.data?.id);
+  //   // redirect('/');
+  //   // window.location = "/" as any;]
+  //   console.log(response);
+  //   return response
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  //   return error
+  // });
 };

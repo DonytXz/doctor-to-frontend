@@ -18,15 +18,15 @@ export const storePatient = (patient: Patient | object) => {
       "auth-token": token,
     },
   };
-  axios
+  return axios
     .post(`${API}/usc/patient/create`, patient, config)
-    .then(function (response) {
-      console.log(response);
-      window.location = "/patients/list" as any;
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // .then(function (response) {
+    //   console.log(response);
+    //   window.location = "/patients/list" as any;
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 };
 
 // export async function getPatients() {

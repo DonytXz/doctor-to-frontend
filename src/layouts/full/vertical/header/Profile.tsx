@@ -14,9 +14,10 @@ import * as dropdownData from "./data";
 import { IconMail } from "@tabler/icons-react";
 import { Stack } from "@mui/system";
 import { useTranslation } from "react-i18next";
-
+import { useRouter } from "next/router";
 
 const Profile = () => {
+  const router = useRouter();
   const [anchorEl2, setAnchorEl2] = useState(null);
   const { t } = useTranslation();
   const handleClick2 = (event: any) => {
@@ -84,7 +85,7 @@ const Profile = () => {
               Sonia Perez
             </Typography>
             <Typography variant="subtitle2" color="textSecondary">
-            {t(`${"Costemologist"}`)}
+              {t(`${"Costemologist"}`)}
             </Typography>
             <Typography
               variant="subtitle2"
@@ -179,10 +180,18 @@ const Profile = () => {
             </Box>
           </Box>
           <Button
-            href="/auth/auth1/login"
+            // href="/auth/auth1/login"
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                localStorage.removeItem("id");
+                localStorage.removeItem("token");
+                // window.location = "/auth/auth1/login" as any;
+                router.push("/auth/auth1/login");
+              }
+            }}
             variant="outlined"
             color="primary"
-            component={Link}
+            // component={Link}
             fullWidth
           >
             Logout

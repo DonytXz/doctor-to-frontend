@@ -8,7 +8,7 @@ function FormSections(WrappedComponent: ElementType) {
     const { t } = useTranslation();
     const formGrups = Object.entries(props.values);
     //Use memo to prevent renders
-    const memoList = React.useMemo(() => {
+    const memoInputs = React.useMemo(() => {
       return formGrups.map((formGrup: any, index: number) => {
         const typof: string | object = typeof formGrup[1];
         const valueIsObj = typof.toString() == "object";
@@ -69,7 +69,7 @@ function FormSections(WrappedComponent: ElementType) {
     }, []);
     console.log("render FormSections");
 
-    return <>{memoList}</>;
+    return <>{memoInputs}</>;
   };
 
   return Wrapper;
