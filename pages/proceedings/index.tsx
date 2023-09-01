@@ -4,6 +4,7 @@ import Breadcrumb from "src/layouts/full/shared/breadcrumb/Breadcrumb";
 import { BCrumProceedings } from "src/utils/BCrumProceedings";
 import DashboardCard from "src/components/shared/DashboardCard";
 import ProceedingsForm from "src/components/proceedings/ProceedingsForm";
+import ButtonsBar from "src/components/shared/ButtonsBar";
 
 const index = () => {
   return (
@@ -14,6 +15,7 @@ const index = () => {
           <ProceedingsForm />
         </div>
       </DashboardCard>
+      <ButtonsBar />
     </PageContainer>
   );
 };

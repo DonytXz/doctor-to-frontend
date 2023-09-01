@@ -5,6 +5,7 @@ import Breadcrumb from "../../../src/layouts/full/shared/breadcrumb/Breadcrumb";
 import { BCrumPatients } from "../../../src/utils/BCrumPatients";
 import { useTranslation } from "react-i18next";
 import ClientRegisterForm from "../../../src/components/patients/PatientRegisterForm";
+import ButtonsBar from "src/components/shared/ButtonsBar";
 
 const RegisterClient = () => {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ const RegisterClient = () => {
           <ClientRegisterForm />
         </div>
       </DashboardCard>
+      <ButtonsBar />
     </PageContainer>
   );
 };

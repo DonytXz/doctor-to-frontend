@@ -2,7 +2,23 @@
 .mui-style-1pxa9xg-MuiAlert-message {
     margin: auto 0 !important;
 }
+
 .mui-style-p39m25-MuiTableCell-root {
     max-width: 300px;
     overflow: hidden;
+}
+
+/* Make button bar transparent */
+/* .mui-style-16lloyr-MuiBottomNavigation-root {
+    background: transparent !important;
+}
+
+.mui-style-17hxbah-MuiBottomNavigation-root {
+    background: transparent !important;
+} */
+
+.mui-style-1u6bbk9-MuiButtonBase-root-MuiBottomNavigationAction-root {
+    background: white !important;
+    border: 0 !important;
+    /* opacity: 0.8; */
 }
