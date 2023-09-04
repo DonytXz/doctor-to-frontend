@@ -16,18 +16,15 @@ import CustomFormLabel from "../../../src/components/forms/theme-elements/Custom
 import AuthSocialButtons from "./AuthSocialButtons";
 import { Formik } from "formik";
 import { login } from "../../../src/services/Auth";
-import toast, { Toaster } from "react-hot-toast";
-import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
+import { useDispatch } from "src/store/Store";
+import { setLoadder, setToast } from "src/store/customizer/CustomizerSlice";
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
   const router = useRouter();
-  const { t } = useTranslation();
-  const txtSuccess = t(`Loggin Success`);
-  const notifySuccess = () => toast.success(txtSuccess);
+  const dispatch = useDispatch();
   return (
     <>
-      <Toaster />
       {title ? (
         <Typography fontWeight="700" variant="h3" mb={1}>
           {title}
@@ -69,33 +66,36 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
           return errors;
         }}
         onSubmit={(values) => {
-          // console.log(values, "values");
+          dispatch(setLoadder(true));
+          let responseErr: any;
           login(values)
             .then(function (response: any) {
+              dispatch(setLoadder(false));
+              dispatch(
+                setToast({
+                  active: true,
+                  type: "success",
+                  msj: "Loggin Success",
+                })
+              );
               localStorage.setItem("token", response?.data?.token);
               localStorage.setItem("id", response?.data?.id);
-              // redirect('/');
-              // window.location = "/" as any;]
-              console.log(response);
-              if (!response?.data?.error) router.push("/");
-              // router.push("/")
-              // return response;
+              responseErr = response?.data?.error;
+            })
+            .then(function (response: any) {
+              if (!responseErr) router.push("/");
             })
             .catch(function (error) {
-              console.log(error);
-              // return error;
+              dispatch(setLoadder(false));
+              dispatch(
+                setToast({
+                  active: true,
+                  type: "error",
+                  msj: "Error!",
+                })
+              );
+              // console.log(error);
             });
-            
-          // setTimeout(router.push("/"), 1300);
-          // router.push("/")
-          // const response = login(values);
-          notifySuccess();
-          // window.location = "/" as any;
-
-          // console.log(response, "response");
-          // if(!response){
-          //   redirect('/');
-          // }
         }}
       >
         {({

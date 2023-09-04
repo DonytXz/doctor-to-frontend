@@ -22,3 +22,17 @@
     border: 0 !important;
     /* opacity: 0.8; */
 }
+
+.mui-style-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
+    /* background: transparent!important; */
+    background: rgb(128,128,128, 0.2)
+}
+/* Responsive table */
+/* .mui-style-5plflh-MuiTableCell-root {
+    min-width: unset !important
+} */
+/* Responsive table */
+
+/* .mui-style-5ad73w-MuiPaper-root-MuiDialog-paper{
+    display: none!important;
+} */

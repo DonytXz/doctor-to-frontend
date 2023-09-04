@@ -26,7 +26,6 @@ const AddressInformation = ({
       label: "canada",
     },
   ];
-  
 
   const { t } = useTranslation();
   return (
@@ -131,13 +130,14 @@ const AddressInformation = ({
             name="country"
             onChange={handleChange}
             onBlur={handleBlur}
+            value={values.country}
             id="country-select"
             fullWidth
             variant="outlined"
           >
-            {countries.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
+            {countries.map((country: any, index: number) => (
+              <MenuItem key={index} value={country.value}>
+                {country.label}
               </MenuItem>
             ))}
           </CustomSelect>

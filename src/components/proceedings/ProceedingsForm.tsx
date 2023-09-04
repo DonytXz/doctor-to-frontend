@@ -8,15 +8,20 @@ import { useTranslation } from "react-i18next";
 import FormSections from "./FormSections";
 import ChildForm from "./forms/ChildForm";
 import { storeProcedding } from "src/services/Proceedings";
+import { useDispatch } from "src/store/Store";
+import { setLoadder, setToast } from "src/store/customizer/CustomizerSlice";
+import { useRouter } from "next/router";
 
 const ProceedingsForm = () => {
   const { t } = useTranslation();
   const txtSuccess = t(`Proceedings has successfully registered`);
   const notifySuccess = () => toast.success(txtSuccess);
-  console.log("render ProceedingsForm");
+  // console.log("render ProceedingsForm");
   //HOC component
   const AppHocFormComponent = FormSections(ChildForm);
   //HOC component
+  const router = useRouter();
+  const dispatch = useDispatch();
   return (
     <div>
       {/* ------------------------------------------------------------------------------------------------ */}
@@ -140,9 +145,30 @@ const ProceedingsForm = () => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values, "values");
-          storeProcedding(values);
-          notifySuccess();
+          // console.log(values, "values");
+          storeProcedding(values).then(function (response) {
+            // console.log(response, "responsea");
+            if (response?.success) {
+              dispatch(setLoadder(false));
+              dispatch(
+                setToast({
+                  active: true,
+                  type: "success",
+                  msj: "Patient has successfully registered",
+                })
+              );
+              router.push("/patients/list");
+            } else {
+              dispatch(setLoadder(false));
+              dispatch(
+                setToast({
+                  active: true,
+                  type: "error",
+                  msj: response?.result.message,
+                })
+              );
+            }
+          });
         }}
       >
         {({

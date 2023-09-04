@@ -67,7 +67,7 @@ function FormSections(WrappedComponent: ElementType) {
         }
       });
     }, []);
-    console.log("render FormSections");
+    // console.log("render FormSections");
 
     return <>{memoInputs}</>;
   };

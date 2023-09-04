@@ -54,7 +54,7 @@ export const fetchBlogPost = (title: string) => async (dispatch: AppDispatch) =>
     const response = await axios.post('/api/data/blog/post', { title });
     dispatch(getPosts(response.data.post));
   } catch (err: any) {
-    console.log(err);
+    // console.log(err);
     throw new Error(err);
   }
 };

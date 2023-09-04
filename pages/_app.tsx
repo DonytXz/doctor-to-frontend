@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Head from "next/head";
 import { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
@@ -23,6 +23,14 @@ import "react-quill/dist/quill.snow.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./global.css";
+import Loadder from "src/components/shared/Loadder";
+import toast, { Toaster } from "react-hot-toast";
+import { t } from "i18next";
+import useToast from "src/hooks/UseToast";
+import { useRouter } from "next/router";
+import ButtonsBar from "src/components/shared/ButtonsBar";
+import { Box } from "@mui/material";
+import MobileButtonsBar from "src/components/shared/MobileButtonsBar";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -46,6 +54,33 @@ const MyApp = (props: MyAppProps) => {
 
   const layout = pageProps.layout || "Full";
   const Layout = layouts[Component.layout] || FullLayout;
+  const ComponentWithLoadder = Loadder(Component);
+  useEffect(() => {
+    const toastStore = customizer.toast;
+    let notifyToast: any;
+    let txtToast: any;
+    if (toastStore.type == "success") {
+      txtToast = t(`${toastStore.msj}`);
+      notifyToast = () => toast.success(txtToast);
+    } else if (toastStore.type == "error") {
+      txtToast = t(`${toastStore.msj}`);
+      notifyToast = () => toast.error(txtToast);
+    }
+    if (customizer.toast.active) notifyToast();
+
+    // const myToast = useToast(customizer.toast);
+    // if (customizer.toast.active) myToast();
+  }, [customizer.toast]);
+  const router = useRouter();
+  // console.log(router.route == "/auth/auth1/login");
+  const isLogin = router.route == "/auth/auth1/login";
+  if (typeof window !== "undefined" && !isLogin) {
+    const id = localStorage?.getItem("id") || "";
+    const token = localStorage?.getItem("token") || "";
+    // console.log(id, token, "data localstorage");
+    // if (!id && !token) window.location = "/auth/auth1/login" as any;
+    if (!id && !token) router.push("/auth/auth1/login");
+  }
 
   return (
     <CacheProvider value={emotionCache}>
@@ -59,7 +94,31 @@ const MyApp = (props: MyAppProps) => {
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <Layout>
-            <Component {...pageProps} />
+            {/* <Component {...pageProps} /> */}
+            <ComponentWithLoadder
+              isLoadding={customizer.isLoadding}
+              {...pageProps}
+            />
+            {!isLogin && (
+              <>
+                <Box
+                  sx={{
+                    display: { xs: "none", sm: "block", md: "block" },
+                  }}
+                >
+                  <ButtonsBar />
+                </Box>
+                <Box
+                  // isOpen={true}
+                  sx={{
+                    display: { xs: "block", sm: "none", md: "none" },
+                  }}
+                >
+                  <MobileButtonsBar />
+                </Box>
+              </>
+            )}
+            <Toaster />
           </Layout>
         </RTL>
       </ThemeProvider>

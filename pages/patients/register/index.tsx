@@ -17,7 +17,7 @@ const RegisterClient = () => {
           <ClientRegisterForm />
         </div>
       </DashboardCard>
-      <ButtonsBar />
+      {/* <ButtonsBar /> */}
     </PageContainer>
   );
 };

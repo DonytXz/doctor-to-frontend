@@ -6,12 +6,11 @@ import {
   Paper,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import EditIcon from "@mui/icons-material/Edit";
-import NavigationIcon from "@mui/icons-material/Navigation";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import RestoreIcon from "@mui/icons-material/Restore";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import React from "react";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import FeedIcon from "@mui/icons-material/Feed";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
 const ButtonsBar = () => {
   return (
@@ -38,9 +37,20 @@ const ButtonsBar = () => {
           //   setValue(newValue);
           // }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-          <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
+          <BottomNavigationAction
+            label="Book Apointment"
+            icon={<EventAvailableIcon />}
+          />
+          <BottomNavigationAction label="Add Patient" icon={<AddIcon />} />
+          <BottomNavigationAction
+            label="Calendar"
+            icon={<CalendarMonthIcon />}
+          />
+          <BottomNavigationAction label="Expedient" icon={<FeedIcon />} />
+          <BottomNavigationAction
+            label="Cash register"
+            icon={<MonetizationOnIcon />}
+          />
         </BottomNavigation>
       </Paper>
     </>

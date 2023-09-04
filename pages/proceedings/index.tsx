@@ -15,7 +15,7 @@ const index = () => {
           <ProceedingsForm />
         </div>
       </DashboardCard>
-      <ButtonsBar />
+      {/* <ButtonsBar /> */}
     </PageContainer>
   );
 };
