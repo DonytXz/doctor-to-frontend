@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 interface StateType {
   activeDir?: string | any;
@@ -15,27 +15,31 @@ interface StateType {
   isLanguage?: string;
   isCardShadow?: boolean;
   borderRadius?: number | any;
+  isLoadding?: boolean | any;
+  toast: object | any;
 }
 
 const initialState: StateType = {
-  activeDir: 'ltr',
-  activeMode: 'light', // This can be light or dark
-  activeTheme: 'BLUE_THEME', // BLUE_THEME, GREEN_THEME, BLACK_THEME, PURPLE_THEME, ORANGE_THEME
+  activeDir: "ltr",
+  activeMode: "light", // This can be light or dark
+  activeTheme: "BLUE_THEME", // BLUE_THEME, GREEN_THEME, BLACK_THEME, PURPLE_THEME, ORANGE_THEME
   SidebarWidth: 270,
   MiniSidebarWidth: 87,
   TopbarHeight: 70,
-  isLayout: 'boxed', // This can be full or boxed
+  isLayout: "boxed", // This can be full or boxed
   isCollapse: false, // to make sidebar Mini by default
   isSidebarHover: false,
   isMobileSidebar: false,
   isHorizontal: false,
-  isLanguage: 'es',
+  isLanguage: "es",
   isCardShadow: true,
   borderRadius: 7,
+  isLoadding: false,
+  toast: {},
 };
 
 export const CustomizerSlice = createSlice({
-  name: 'customizer',
+  name: "customizer",
   initialState,
   reducers: {
     setTheme: (state: StateType, action) => {
@@ -49,9 +53,9 @@ export const CustomizerSlice = createSlice({
       state.activeDir = action.payload;
     },
     setLanguage: (state: StateType, action) => {
-      console.log(state.isLanguage);
-      console.log(action.payload, "äsdsa");
-      
+      // console.log(state.isLanguage);
+      // console.log(action.payload, "äsdsa");
+
       state.isLanguage = action.payload;
     },
     setCardShadow: (state: StateType, action) => {
@@ -75,6 +79,12 @@ export const CustomizerSlice = createSlice({
     setBorderRadius: (state: StateType, action) => {
       state.borderRadius = action.payload;
     },
+    setLoadder: (state: StateType, action) => {
+      state.isLoadding = action.payload;
+    },
+    setToast: (state: StateType, action) => {
+      state.toast = action.payload;
+    },
   },
 });
 
@@ -90,6 +100,8 @@ export const {
   toggleHorizontal,
   setLanguage,
   setCardShadow,
+  setLoadder,
+  setToast,
 } = CustomizerSlice.actions;
 
 export default CustomizerSlice.reducer;

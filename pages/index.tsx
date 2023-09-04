@@ -17,14 +17,14 @@ const BCrumb = [
 ];
 
 export default function Home() {
-  const router = useRouter();
-  if (typeof window !== "undefined") {
-    const id = localStorage?.getItem("id") || "";
-    const token = localStorage?.getItem("token") || "";
-    console.log(id, token, "data localstorage");
-    // if (!id && !token) window.location = "/auth/auth1/login" as any;
-    if (!id && !token) router.push("/auth/auth1/login");
-  }
+  // const router = useRouter();
+  // if (typeof window !== "undefined") {
+  //   const id = localStorage?.getItem("id") || "";
+  //   const token = localStorage?.getItem("token") || "";
+  //   console.log(id, token, "data localstorage");
+  //   // if (!id && !token) window.location = "/auth/auth1/login" as any;
+  //   if (!id && !token) router.push("/auth/auth1/login");
+  // }
 
   return (
     <PageContainer title="Sample Page" description="this is Sample page">

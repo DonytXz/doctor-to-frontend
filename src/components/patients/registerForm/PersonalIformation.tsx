@@ -54,8 +54,8 @@ const PersonalIformation = ({
       {/* Patient iformation */}
       {/* ------------------------------------------------------------------------------------------------ */}
       <Alert severity="info">{t(`Person Info`)}</Alert>
-      <Grid container spacing={3} mb={3}>
-        <Grid item lg={6} md={12} sm={12}>
+      <Grid container spacing={3} mb={3} mt={1}>
+        <Grid item lg={6} md={12} sm={12} xs={12}>
           <CustomFormLabel htmlFor="name-text">
             {t(`First Name`)}
           </CustomFormLabel>
@@ -77,13 +77,14 @@ const PersonalIformation = ({
             name="gender"
             onChange={handleChange}
             onBlur={handleBlur}
+            value={values.gender}
             id="gender-text"
             fullWidth
             variant="outlined"
           >
-            {genders.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
+            {genders?.map((gender: any, index: number) => (
+              <MenuItem key={index} value={gender.value}>
+                {gender.label}
               </MenuItem>
             ))}
           </CustomSelect>
@@ -125,7 +126,7 @@ const PersonalIformation = ({
             fullWidth
           />
         </Grid>
-        <Grid item lg={6} md={12} sm={12}>
+        <Grid item lg={6} md={12} sm={12} xs={12}>
           <CustomFormLabel htmlFor="lastName-text">
             {t(`Last Name`)}
           </CustomFormLabel>
@@ -165,12 +166,13 @@ const PersonalIformation = ({
             name="civilstatus"
             onChange={handleChange}
             onBlur={handleBlur}
+            value={values.civilstatus}
             id="civilstatus-text"
             fullWidth
             variant="outlined"
           >
-            {maritalStus.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
+            {maritalStus.map((option: any, index: number) => (
+              <MenuItem key={index} value={option.value}>
                 {option.label}
               </MenuItem>
             ))}

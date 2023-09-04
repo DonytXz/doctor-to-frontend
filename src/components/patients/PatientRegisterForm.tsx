@@ -9,13 +9,15 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
+import { useDispatch } from "src/store/Store";
+import { setLoadder, setToast } from "src/store/customizer/CustomizerSlice";
 
 const PatientRegisterForm = () => {
-  const router = useRouter();
-  const [success, SetSuccess] = useState(false);
   const { t } = useTranslation();
-  const txtSuccess = t(`Patient has successfully registered`);
-  const notifySuccess = () => toast.success(txtSuccess);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  // const txtSuccess = t(`Patient has successfully registered`);
+  // const notifySuccess = () => toast.success(txtSuccess);
   return (
     <div>
       {/* ------------------------------------------------------------------------------------------------ */}
@@ -31,14 +33,14 @@ const PatientRegisterForm = () => {
           city: "",
           state: "",
           zipCode: "",
-          country: "",
+          country: "mx",
 
           name: "",
           lastName: "",
-          gender: "",
+          gender: "male",
           religion: "",
           birthdate: Date,
-          civilstatus: "",
+          civilstatus: "single",
           ocupation: "",
           bloodType: "",
           age: "",
@@ -56,6 +58,7 @@ const PatientRegisterForm = () => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
+          dispatch(setLoadder(true));
           const address = `${values.street} ${values.zipCode} ${values.city} ${values.state} ${values.country}`;
           const patient: any = {
             email: values.email,
@@ -72,18 +75,34 @@ const PatientRegisterForm = () => {
             age: values.age,
             curp: values.curp,
           };
-          notifySuccess();
-          storePatient(patient)
-            .then(function (response) {
-              console.log(response);
+          // notifySuccess();
+          storePatient(patient).then(function (response) {
+            if (response?.success) {
+              // console.log(response);
+              dispatch(setLoadder(false));
+              dispatch(
+                setToast({
+                  active: true,
+                  type: "success",
+                  msj: "Patient has successfully registered",
+                })
+              );
               router.push("/patients/list");
-              // window.location = "/patients/list" as any;
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-          SetSuccess(true);
-          setSubmitting(false);
+            } else {
+              dispatch(setLoadder(false));
+              dispatch(
+                setToast({
+                  active: true,
+                  type: "error",
+                  msj: response?.result,
+                })
+              );
+            }
+            // router.push("/patients/list");
+            // dispatch(setLoadder(false));
+            // window.location = "/patients/list" as any;
+            // router.push("/patients/list");
+          });
         }}
       >
         {({
@@ -147,7 +166,7 @@ const PatientRegisterForm = () => {
           </ParentCard>
         )}
       </Formik>
-      <Toaster />
+      {/* <Toaster /> */}
       {/* ------------------------------------------------------------------------------------------------ */}
       {/* Patient Form */}
       {/* ------------------------------------------------------------------------------------------------ */}

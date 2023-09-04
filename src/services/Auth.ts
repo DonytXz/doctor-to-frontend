@@ -5,7 +5,7 @@ const API = process.env.NEXT_PUBLIC_API_URL;
 // import { signIn, signOut } from "next-auth/react";
 
 export const login = (values: any) => {
-  console.log(API, "api");
+  // console.log(API, "api");
 
   return axios.post(`${API}/usc/cosmotologist/login`, {
     email: values.username,
