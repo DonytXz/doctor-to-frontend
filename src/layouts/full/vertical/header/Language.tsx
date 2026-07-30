@@ -6,6 +6,7 @@ import { Stack } from '@mui/system';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { AppState } from '../../../../store/Store';
+import { withBasePath } from 'src/utils/basePath';
 
 const Languages = [
   {
@@ -65,7 +66,11 @@ const Language = () => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <Avatar src={currentLang.icon} alt={currentLang.value} sx={{ width: 20, height: 20 }} />
+        <Avatar
+          src={withBasePath(currentLang.icon)}
+          alt={currentLang.value}
+          sx={{ width: 20, height: 20 }}
+        />
       </IconButton>
       <Menu
         id="long-menu"
@@ -85,7 +90,11 @@ const Language = () => {
             onClick={() => dispatch(setLanguage(option.value))}
           >
             <Stack direction="row" spacing={1} alignItems="center">
-              <Avatar src={option.icon} alt={option.icon} sx={{ width: 20, height: 20 }} />
+              <Avatar
+                src={withBasePath(option.icon)}
+                alt={option.icon}
+                sx={{ width: 20, height: 20 }}
+              />
               <Typography> {option.flagname}</Typography>
             </Stack>
           </MenuItem>

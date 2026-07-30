@@ -2,13 +2,14 @@ import CustomSocialButton from "../../../src/components/forms/theme-elements/Cus
 import { Stack } from "@mui/system";
 import { Avatar, Box } from "@mui/material";
 import { signInType } from "../../../src/types/auth/auth";
+import { withBasePath } from "src/utils/basePath";
 
 const AuthSocialButtons = ({ title }: signInType) => (
   <>
     <Stack direction="row" justifyContent="center" spacing={2} mt={3}>
       <CustomSocialButton>
         <Avatar
-          src={"/images/svgs/google-icon.svg"}
+          src={withBasePath("/images/svgs/google-icon.svg")}
           alt={"icon1"}
           sx={{
             width: 16,
@@ -30,7 +31,7 @@ const AuthSocialButtons = ({ title }: signInType) => (
       </CustomSocialButton>
       <CustomSocialButton>
         <Avatar
-          src={"/images/svgs/facebook-icon.svg"}
+          src={withBasePath("/images/svgs/facebook-icon.svg")}
           alt={"icon2"}
           sx={{
             width: 25,

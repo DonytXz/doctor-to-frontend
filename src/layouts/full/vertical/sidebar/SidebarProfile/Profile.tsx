@@ -12,6 +12,7 @@ import { AppState } from "../../../../../store/Store";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
+import { withBasePath } from "src/utils/basePath";
 
 export const Profile = () => {
   const customizer = useSelector((state: AppState) => state.customizer);
@@ -33,7 +34,7 @@ export const Profile = () => {
         <>
           <Avatar
             alt="Remy Sharp"
-            src={"/images/profile/user-1.jpg"}
+            src={withBasePath("/images/profile/user-1.jpg")}
             sx={{ height: 40, width: 40 }}
           />
 

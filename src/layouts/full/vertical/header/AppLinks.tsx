@@ -2,6 +2,7 @@ import { Avatar, Box, Typography, Grid, Stack } from '@mui/material';
 import * as dropdownData from './data';
 import Link from 'next/link';
 import React from 'react';
+import { withBasePath } from 'src/utils/basePath';
 
 const AppLinks = () => {
   return (
@@ -19,7 +20,7 @@ const AppLinks = () => {
                 justifyContent="center"
               >
                 <Avatar
-                  src={links.avatar}
+                  src={withBasePath(links.avatar)}
                   alt={links.avatar}
                   sx={{
                     width: 24,

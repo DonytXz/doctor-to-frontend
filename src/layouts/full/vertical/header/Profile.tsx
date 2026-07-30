@@ -15,6 +15,7 @@ import { IconMail } from "@tabler/icons-react";
 import { Stack } from "@mui/system";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
+import { withBasePath } from "src/utils/basePath";
 
 const Profile = () => {
   const router = useRouter();
@@ -43,7 +44,7 @@ const Profile = () => {
         onClick={handleClick2}
       >
         <Avatar
-          src={"/images/profile/user-1.jpg"}
+          src={withBasePath("/images/profile/user-1.jpg")}
           alt={"ProfileImg"}
           sx={{
             width: 35,
@@ -72,7 +73,7 @@ const Profile = () => {
         <Typography variant="h5">User Profile</Typography>
         <Stack direction="row" py={3} spacing={2} alignItems="center">
           <Avatar
-            src={"/profile/user-1.jpg"}
+            src={withBasePath("/images/profile/user-1.jpg")}
             alt={"ProfileImg"}
             sx={{ width: 95, height: 95 }}
           />
@@ -114,7 +115,7 @@ const Profile = () => {
                     justifyContent="center"
                   >
                     <Avatar
-                      src={profile.icon}
+                      src={withBasePath(profile.icon)}
                       alt={profile.icon}
                       sx={{
                         width: 24,
@@ -171,7 +172,7 @@ const Profile = () => {
                 </Button>
               </Box>
               <img
-                src={"/backgrounds/unlimited-bg.png"}
+                src={withBasePath("/images/backgrounds/unlimited-bg.png")}
                 alt="unlimited"
                 className="signup-bg"
                 width={150}

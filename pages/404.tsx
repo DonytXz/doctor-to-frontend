@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
 import Link from "next/link";
 import React from "react";
+import { withBasePath } from "src/utils/basePath";
 
 const Error = () => (
   <Box
@@ -13,7 +14,7 @@ const Error = () => (
   >
     <Container maxWidth="md">
       <img
-        src={"/images/backgrounds/errorimg.svg"}
+        src={withBasePath("/images/backgrounds/errorimg.svg")}
         alt="404"
         style={{ width: "100%", maxWidth: "500px" }}
       />

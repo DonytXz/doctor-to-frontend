@@ -2,6 +2,7 @@ import { Grid, Box, Typography } from '@mui/material';
 import PageContainer from 'src/components/container/Pagecontainer';
 import Logo from 'src/layouts/full/shared/logo/Logo';
 import AuthTwoSteps from '../../authForms/AuthTwoSteps';
+import { withBasePath } from 'src/utils/basePath';
 
 const TwoSteps = () => (
   <PageContainer title="Two Steps" description="this is Two Steps page">
@@ -42,7 +43,7 @@ const TwoSteps = () => (
             }}
           >
             <img
-              src={"/images/backgrounds/login-bg.svg"}
+              src={withBasePath("/images/backgrounds/login-bg.svg")}
               alt="bg"
               style={{
                 width: '100%',

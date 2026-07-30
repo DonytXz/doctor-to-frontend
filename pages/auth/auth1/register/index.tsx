@@ -4,6 +4,7 @@ import PageContainer from "../../../../src/components/container/Pagecontainer";
 import Logo from "../../../../src/layouts/full/shared/logo/Logo";
 
 import AuthRegister from "../../authForms/AuthRegister";
+import { withBasePath } from "src/utils/basePath";
 
 const Register = () => (
   <PageContainer title="Register" description="this is Register page">
@@ -49,7 +50,7 @@ const Register = () => (
             }}
           >
             <img
-              src={"/images/backgrounds/login-bg.svg"}
+              src={withBasePath("/images/backgrounds/login-bg.svg")}
               alt="bg"
               style={{
                 width: "100%",

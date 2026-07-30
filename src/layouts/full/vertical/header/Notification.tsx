@@ -16,6 +16,7 @@ import Scrollbar from '../../../../components/custom-scroll/Scrollbar';
 import { IconBellRinging } from '@tabler/icons-react';
 import { Stack } from '@mui/system';
 import Link from 'next/link';
+import { withBasePath } from 'src/utils/basePath';
 
 const Notifications = () => {
   const [anchorEl2, setAnchorEl2] = useState(null);
@@ -72,7 +73,7 @@ const Notifications = () => {
               <MenuItem sx={{ py: 2, px: 4 }}>
                 <Stack direction="row" spacing={2}>
                   <Avatar
-                    src={notification.avatar}
+                    src={withBasePath(notification.avatar)}
                     alt={notification.avatar}
                     sx={{
                       width: 48,

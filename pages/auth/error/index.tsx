@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Box, Container, Typography, Button } from '@mui/material';
 import Link from 'next/link';
+import { withBasePath } from 'src/utils/basePath';
 
 const Error: FC = () => (
   <Box
@@ -11,7 +12,11 @@ const Error: FC = () => (
     justifyContent="center"
   >
     <Container maxWidth="md">
-      <img src={"/backgrounds/errorimg.svg"} alt="404" style={{ width: '100%', maxWidth: '500px' }} />
+      <img
+        src={withBasePath("/images/backgrounds/errorimg.svg")}
+        alt="404"
+        style={{ width: '100%', maxWidth: '500px' }}
+      />
       <Typography align="center" variant="h1" mb={4}>
         Opps!!!
       </Typography>

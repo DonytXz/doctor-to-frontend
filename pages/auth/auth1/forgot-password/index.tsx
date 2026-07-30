@@ -2,6 +2,7 @@ import { Grid, Box, Typography } from '@mui/material';
 import Logo from 'src/layouts/full/shared/logo/Logo';
 import PageContainer from 'src/components/container/Pagecontainer';
 import AuthForgotPassword from '../../authForms/AuthForgotPassword';
+import { withBasePath } from 'src/utils/basePath';
 const ForgotPassword = () => (
   <PageContainer title="Forgot Password" description="this is Forgot Password page">
     <Grid container justifyContent="center" spacing={0} sx={{ overflowX: 'hidden' }}>
@@ -41,7 +42,7 @@ const ForgotPassword = () => (
             }}
           >
             <img
-              src={"/images/backgrounds/login-bg.svg"}
+              src={withBasePath("/images/backgrounds/login-bg.svg")}
               alt="bg"
               style={{
                 width: '100%',

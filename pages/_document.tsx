@@ -2,6 +2,7 @@ import * as React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import createEmotionCache from "../src/createEmotionCache";
+import { withBasePath } from "../src/utils/basePath";
 
 export default class MyDocument extends Document {
   render() {
@@ -10,7 +11,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" />
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href={withBasePath("/favicon.ico")} />
           <link
             href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet"
