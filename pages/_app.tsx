@@ -19,7 +19,6 @@ import "../src/_mockApis";
 import "../src/utils/i18n";
 
 // CSS FILES
-import "react-quill/dist/quill.snow.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./global.css";
